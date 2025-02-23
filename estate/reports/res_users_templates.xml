@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_res_users_properties">
+        <t t-foreach="docs" t-as="user">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>
+                            <span t-field="user.name"/>'s Real Estate Properties
+                        </h2>
+
+                        <t t-set="properties" t-value="user.mapped('property_ids')"/>
+                        <t t-if="properties">
+                            <t t-foreach="properties" t-as="property">
+                                <div class="mt16">
+                                    <h3>
+                                        <span t-field="property.name"/>
+                                    </h3>
+                                    <div>
+                                        <strong>Expected price:</strong>
+                                        <span t-field="property.expected_price"/>
+                                    </div>
+                                    <div>
+                                        <strong>Status:</strong>
+                                        <span t-field="property.state"/>
+                                    </div>
+
+                                    <t t-set="offers" t-value="property.offer_ids"/>
+                                    <t t-if="offers">
+                                        <t t-call="estate.report_offers_table">
+                                            <t t-set="offers" t-value="offers"/>
+                                        </t>
+                                    </t>
+                                    <t t-else="">
+                                        <div>No offer has been made yet</div>
+                                    </t>
+                                </div>
+                            </t>
+                        </t>
+                        <t t-else="">
+                            <div>No properties assigned</div>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -3,6 +3,8 @@ from odoo import models, fields
 class EstateProperty(models.Model):
     _inherit = 'estate.property'
 
+    invoice_id = fields.Many2one('account.move', string="Invoice", readonly=True)
+
     def action_sell(self):
         print(" from inherited ".center(50, "-"))
 
@@ -26,4 +28,5 @@ class EstateProperty(models.Model):
             ],
         })
         invoice.action_post()
+        self.invoice_id = invoice.id
         return super().action_sell()

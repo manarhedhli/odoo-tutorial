@@ -10,6 +10,11 @@
         'security/ir.model.access.csv',
         'security/security.xml',
 
+        'reports/estate_property_reports.xml',
+        'reports/estate_property_offer_templates.xml',
+        'reports/estate_property_templates.xml',
+        'reports/res_users_templates.xml',
+
         'views/inherited_users_views.xml',
         'views/estate_property_offer_views.xml',
         'views/estate_property_type_views.xml',

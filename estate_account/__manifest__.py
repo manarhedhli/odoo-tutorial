@@ -1,5 +1,6 @@
 {
     'name': 'ESTATE ACCOUNT',
+    'category': 'Real Estate/Brokerage',
     'depends': [
         'base',
         'estate',
@@ -7,11 +8,11 @@
         'contacts',
     ],
     'data': [
-
+        'reports/estate_property_reports.xml',
     ],
     'demo': [
     ],
     'installable': True,
-    'application': True,
+    # 'application': True,
     'auto_install': False
 }
